@@ -1,0 +1,161 @@
+
+#====================================================================================#
+#     ENSAE Pierre NDIAYE de Dakar ISEP2 2023-2024                                   #
+#     COURS DE Traitement statistiques avec le logiciel R        avec M. DIALLO      #
+#           Exercice de la séance 3 á faire avant le cours du 06 mars 2024           #
+#====================================================================================#
+
+#============== Exercice Numero 1 : Sur la base de données de l'excercice précédent =================
+
+
+###########################################################################################    I Reprenons notre base de données
+
+#Reprenons notre base de données, cette fois ci, il n'y aura plus d'alea et nous ajouterons 7 autres variables. Les observations seront importer via excel
+# 1) Créer une base de données fictive
+ma_bdd <- data.frame(
+  prenoms_nom = c("Awa DIAW", "Mame Balla BOUSSO", "Ahmadou NIASS", "Khadidiatou COULIBALY", "Khadidiatou DIAKHATE", "Papa Amadoou NIANG", "Alioune Abdou Salam KANE", "Malick SENE", "Ange Emilson Rayan RAHERINASOLO", "Jeanne de la flèche ONANENA AMANA", "Sarah-Laure FOGWOUNG DJOUFACK", "Célina NGUEMFOUO NGOUMTSA", "Hildegarde Edima BIYENDA", "Samba DIENG", "Tamsir NDONG", "Ameth FAYE", "Mouhamadou Hady DIALLO"),
+  surnom = c("Diawa", "MBB ISEP", "Imam", "Championne", "Experte Diakité", "Expert PAN", "Businessman", "El Hadji Malick ML", "Expert VBA ML", "Fléchette", "Génie", "Princesse", "Mme Charlemagne", "Bathie Simplexe", "Inspecteur", "El maestro", "M.Diallo R"),
+  sexe = factor(c(2, 1, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1), levels = c(1, 2), labels = c("Masculin", "Feminin")),
+  nationalite = factor(c("Sénégalaise", "Sénégalaise", "Sénégalaise", "Sénégalaise", "Sénégalaise", "Sénégalaise", "Sénégalaise", "Sénégalaise", "Malgache", "Camerounaise", "Camerounaise", "Camerounaise", "Camerounaise", "Sénégalaise", "Sénégalaise", "Sénégalaise", "Sénégalaise")),
+  Situation_matrim = factor(c(2, 4, 1, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1), levels = c(1, 2, 3, 4), labels = c("Marié", "célibataire", "Veuf", "Divorcé")),
+  age = c(20, 22, 23, 19, 17, 18, 19, 21, 22, 19, 21, 19, 19, 24, 23, 21, 30),
+  commentaire_sur_l_age = factor(c("Néant", "Néant", "Néant", "Appréhende ses 20 ans", "Néant", "Néant", "Néant", "Néant", "Néant", "Néant", "A passé la barre des 20 ans hier HBD", "Néant", "Néant", "Néant", "Néant", "Néant", "Néant")),
+  taille = c(165, 170, 180, 160, 175, 168, 175, 178, 162, 170, 175, 160, 172, 167, 180, 160, 175),
+  niveau_etude = c("Licence", "Master", "Bac", "Licence", "Bac", "Bac", "Master", "Doctorat", "Licence", "Bac", "Master", "Licence", "Master", "Licence", "Doctorat", "Bac", "Master"),  
+  langue_preferee = c("Français", "Anglais", "Wolof", "Français", "Anglais", "Français", "Anglais", "Espagnol", "Français", "Anglais", "Wolof", "Français", "Anglais", "Français", "Espagnol", "Wolof", "Français"),  
+  heures_de_travail_par_jour = c(8, 6, 7, 9, 8, 9, 6, 10, 8, 7, 8, 9, 7, 8, 6, 9, 7),
+  chiffre_prefere = c(1, 0, 0, 7, 9, 0, 3, 4, 4, 0, 7, 6, 5, 3, 2, 1, 8),
+  distance_ensae_maison_en_min = c(20, 45, 39, 19, 10, 4, 19, 2, 22, 59, 71, 35, 28, 44, 10, 21, 15),
+  heures_de_sommeil_par_jour = c(2, 5, 9, 6, 3, 4, 7, 2, 6, 9, 7, 5, 2, 4, 8, 5, 5),
+  frequence_sport_semaine = c(0, 5, 3, 19, 10, 4, 11, 7, 12, 5, 7, 3, 1, 4, 10, 1, 5),
+  nombre_reseaux_sociaux_utilises = c(0, 2, 1, 9, 10, 3, 1, 17, 2, 6, 2, 7, 0, 2, 3, 0, 9),
+  utilise_tiktok = factor(c(2, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 1), levels = c(1, 2), labels = c("Oui", "Non")),
+  est_satisfait_de_sa_vie = factor(c(1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2, 1, 2, 1, 2, 2, 1), levels = c(1, 2), labels = c("Oui", "Non")),
+  aime_la_lecture = factor(c(1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 2, 1), levels = c(1, 2), labels = c("Oui", "Non"))
+)
+
+# Afficher la structure complète de la base de données
+str(ma_bdd)
+View(ma_bdd)
+head(ma_bdd)
+
+###########################################################################################    II Export / Import
+########################### Exportons la base de données sur excel
+# Pour cela, commençons par Installer et charger la bibliothèque openxlsx
+# Installer et charger la bibliothèque openxlsx
+install.packages("openxlsx")
+library(openxlsx)
+
+# Exporter la base de données vers Excel
+write.xlsx(ma_bdd, "C:/Users/HP RYZEN 3/Desktop/For_Awa_DIAW/Second_Term_2023_2024_Isep2_ENSAE/Exo_Séance3_Rstudio_basededonnées_DIAW_Awa_Isep2_2024_MDIALLO.xlsx", rowNames = FALSE)
+
+############################## Importons la base de données complétée depuis excel
+# Spécifier le chemin vers le fichier Excel mis à jour
+chemin_fichier_excel <- "C:/Users/HP RYZEN 3/Desktop/For_Awa_DIAW/Second_Term_2023_2024_Isep2_ENSAE/Exo_Séance3_Rstudio_basededonnées_DIAW_Awa_Isep2_2024_MDIALLO.xlsx"
+
+# Lire le fichier Excel
+ma_bdd_finale <- read.xlsx(chemin_fichier_excel)
+
+# Afficher la structure de la base de données complète
+str(ma_bdd_finale)
+View(ma_bdd_finale)
+head(ma_bdd_finale)
+# 2) Créer une matrice à partir des données
+ma_matrice <- as.matrix(ma_bdd_finale)
+
+# 3) Renommer les lcolonnes de la matrice
+colnames(ma_matrice) <- c("first_and_last_names", "surname", "sex", "nationality", "home_to_ensae_duration", "age", "comment_about_age")
+#  Affichons la base de données
+View(ma_matrice)
+
+# Ajouter une variable à calculer
+ma_bdd_finale$Appréciation_distance_ensae_maison_en_min <- ifelse(ma_bdd_finale$distance_ensae_maison_en_min >= 90, "Situation inacceptable à laquelle il faut remédier",
+                                                           ifelse(ma_bdd_finale$distance_ensae_maison_en_min >= 60, "Situation pénible",
+                                                                  ifelse(ma_bdd_finale$distance_ensae_maison_en_min >= 30,"Situation Difficile",
+                                                                         ifelse(ma_bdd_finale$distance_ensae_maison_en_min >= 15,"Situation Facile",
+                                                                                ifelse(ma_bdd_finale$distance_ensae_maison_en_min >= 0, "Situation très facile","A/N")))))
+
+# Ajouter une variable de classement
+library(dplyr) #pour utiliser la fonction min_rank() pour donner à R la manière dont il doit organiser l'attribution de rang
+ma_bdd_finale$classement_maison_la_plus_proche <- min_rank(ma_bdd_finale$distance_ensae_maison_en_min)
+
+#  Affichons la base de données finale
+View(ma_bdd_finale)
+
+# Faire des statistiques descriptives: mean, max, quartiles; Histogrammes; Camembert
+summary(ma_bdd_finale)
+
+########################################################################################### III  Représentations graphiques
+# Histogramme de l'âge
+hist(ma_bdd_finale$age, main = "Distribution des âges", xlab = "Âge", ylab = "Fréquence", col = "skyblue")
+
+# Diagramme en circulaire pour la répartition des sexes
+pie(table(ma_bdd_finale$sexe), main = "Répartition des sexes", xlab = "Sexe", ylab = "Effectifs", col = c("skyblue", "lightcoral"))
+
+# Diagramme à boîtes pour la distance entre le domicile et l'école
+boxplot(ma_bdd_finale$distance_ensae_maison_en_min, main = "Distance entre le domicile et l'école", ylab = "Minutes", col = c("lightgreen", "lightcoral"))
+
+# Barplot pour l'Appréciation de la durée du parcours ENSAE-Domicile
+barplot(table(ma_bdd_finale$Appréciation_distance_ensae_maison_en_min),
+        main = "Distribution de l'Appréciation",
+        xlab = "Appréciation",
+        ylab = "Fréquence",
+        col = c("skyblue", "lightgreen", "lightcoral", "gold", "mediumorchid"))
+
+# Graphique en barres empilées pour la répartition des appréciations par sexe
+barplot(table(ma_bdd_finale$Appréciation_distance_ensae_maison_en_min, ma_bdd_finale$sexe),
+        main = "Répartition des appréciations de la distance_ensae_maison_en_min par sexe",
+        xlab = "Appréciation",
+        ylab = "Nombre de personnes",
+        legend = TRUE,
+        beside = TRUE,
+        col = c("skyblue", "lightcoral"))
+
+####Relation entre les heures de travail par jour et la distance domicile-école
+plot(ma_bdd$heures_de_travail_par_jour, ma_bdd$distance_ensae_maison_en_min, main = "Relation entre les heures de travail par jour et la distance domicile-école", xlab = "Heures de travail par jour", ylab = "Distance (minutes)", col = "mediumorchid")
+#####Fréquence du sport par semaine
+barplot(table(ma_bdd$frequence_sport_semaine), main = "Fréquence du sport par semaine", xlab = "Fréquence", ylab = "Nombre de personnes", col = "skyblue")
+
+
+
+
+
+
+
+
+
+
+#============== Exercice Numero 2 : Implémenter manuellement le test de khi deux =================
+
+###Le test du khi-deux (chi-squared) est utilisé pour évaluer l'indépendance entre deux variables catégorielles.
+##Ici,nous allons implémentater manuellement pour tester l'indépendance entre les variables "sexe" et "est_satisfait_de_sa_vie" dans notre base de données :
+# Le test de khi deux n'est utilisé qu'entre deux variables qualitatives
+
+# Tableau de contingence
+table_cont <- table(ma_bdd_finale$sexe, ma_bdd_finale$est_satisfait_de_sa_vie)
+
+# Afficher le tableau de contingence
+print("Tableau de contingence :")
+print(table_cont)
+
+# Calcul de la statistique du khi-deux
+chi_squared_stat <- chisq.test(table_cont)$statistic
+
+# Degrés de liberté
+degrees_of_freedom <- chisq.test(table_cont)$parameter
+
+# Valeur p
+p_value <- chisq.test(table_cont)$p.value
+
+# Afficher les résultats
+cat("Statistique du khi-deux :", chi_squared_stat, "\n")
+cat("Degrés de liberté :", degrees_of_freedom, "\n")
+cat("Valeur p :", p_value, "\n")
+
+# Interprétation
+if (p_value < 0.05) {
+  cat("Conclusion : Les deux variables 'sexe' et 'est_satisfait_de_sa_vie' dans notre base de données finale sont dépendantes (rejeter l'hypothèse nulle d'indépendance).\n")
+} else {
+  cat("Conclusion : Les deux variables 'sexe' et 'est_satisfait_de_sa_vie' dans notre base de données finale sont indépendantes (ne pas rejeter l'hypothèse nulle d'indépendance).\n")
+}
+####Cette implémentation utilise la fonction chisq.test pour effectuer le test du khi-deux. 
