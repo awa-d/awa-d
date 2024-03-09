@@ -1,0 +1,78 @@
+---
+title: "Exercice à Faire avant la séance 4"
+author: "Awa IAW"
+date: "2024-03-09"
+output: html_document
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Chargement des packages nécessaires
+
+```{r setup, include = FALSE}
+library(dplyr)
+library(ggplot2)
+```
+# Lecture de la base de données
+```{r setup, include = FALSE}
+library(readxl)
+
+bdd <- read_excel("/Users/hp/Desktop/Awa_DIAW_2023_2024/Awa_DIAW_cours/Second_Term_2023_2024_Isep2_ENSAE/Informatique 4/Traitement_statistique_avec_R/CoursR_Isep2_2024_ENSAE/Exo_Séance3_Rstudio_basededonnées_DIAW_Awa_Isep2_2024_MDIALLO.xlsx")
+
+```
+# Affichage des premières lignes de la base de données
+
+```{r setup, include = FALSE}
+head(bdd)
+```
+# Affichage des statistiques
+```{r setup, include = FALSE}
+summary(bdd)
+```
+# Chargement des packages nécessaires
+```{r setup, include=FALSE}
+library(ggplot2)
+```
+#  Création de l'histogramme de l'âge
+```{r}
+ggplot(bdd, aes(x = age)) +
+  geom_histogram(binwidth = 5, fill = "gold", color = "black") +
+  labs(title = "Histogramme de l'âge",
+       x = "Âge",
+       y = "Fréquence") +
+  theme_minimal()
+```
+# Chargement des packages nécessaires
+```{r setup, include=FALSE}
+library(ggplot2)
+```
+# Création du diagramme circulaire pour la répartition des sexes
+## Calculer la fréquence de chaque sexe
+## Créer un dataframe pour les données du diagramme circulaire
+## Tracer le diagramme circulaire
+```{r setup, include = FALSE}
+library(ggplot2)
+
+sex_freq <- table(bdd$sexe)
+
+df_sex_freq <- data.frame(sexe = names(sex_freq), freq = as.numeric(sex_freq))
+
+ggplot(df_sex_freq, aes(x = "", y = freq, fill = sexe)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  labs(title = "Répartition des sexes",
+       fill = "Sexe") +
+  theme_void() +
+  theme(legend.position = "right")
+
+
+```
+# Pour voir les variables de ma base de données
+```{r setup, include = FALSE}
+names(bdd)
+```
+# Exemple de régression linéaire avec deux variables
+```{r setup, include = FALSE}
+lm_model <- lm(taille~ frequence_sport_semaine, bdd = bdd)
+summary(lm_model)
+``
