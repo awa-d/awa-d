@@ -1,10 +1,115 @@
 ---
-title: "Curriculum Vitae"
-author: "Awa DIAW"
-date: "2024-03-12"
-output: pdf_document
+title: "CV de AWA DIAW"
+author: AWA DIAW
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: false
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
 ---
-install.packages("vitae")
-install.packages("pagedown")
-library("vitae")
-install.packages('tinytex')
+
+# Aside
+
+![](Awa_DIAW_2023_2024/Else/toph_mifa/Diawa.jpg)
+
+## Contact Info {#contact}
+
+-   <i class="fa fa-envelope"></i> [diawa3002\@gmail.com](mailto:diawa3002@gmail.com){.email}
+-   <i class="fa fa-github"></i> <https://github.com/awa-d/awa-d>\>
+-   <i class="fa fa-phone"></i> +221 78 570 67 46
+
+# Main
+
+## Awa DIAw {#title}
+
+### Elève ingénieure statisticienne en deuxième année de formation
+
+## Parcours académique {data-icon="laptop"}
+
+### Cycle élémentaire
+
+Ecole Franco Arabe Al Islah
+
+Yeumbeul , Dakar
+
+2009 - 2015
+
+-   Certificat de fin d'études élémentaires (CFEE)
+
+### Cycle moyen 
+
+CEM Momar Marème DIOP
+
+Yeumbeul, Dakar
+
+2015 - 2019
+
+-   BFEM -1ère du Jury
+
+### Cycle Secondaire
+
+Lycée Seydina Limamou LAYE
+
+Guédiawaye, Dakar
+
+2019 - 2022
+
+-   Baccalauréat S1 Mention Très BIEN
+
+### Formation professionnelle
+
+ENSAE Pierre Ndiaye
+
+Colobane, Dakar
+
+2022 -
+
+## Distinctions et Activités extrascolaires {data-icon="graduation-cap" data-concise="true"}
+
+::: concise
+-   2017 Participation au camp d'excellence Mini ME organisé à la maison d'éducation Mariama BA de Goréee par Jeader.
+-    2020 Miss Science 2020 de l'IA Pikine Guédiawaye
+-   2022 2ème Prix niveau terminale de la première édition des olympiades mathématiques
+-   2022-2023 Trésorière de l’AES, Amicale des élèves et Stagiaire de l’ENSAE
+-   2022-2023 Chargée à la communication du BSA
+-   2022-2023 Membre de la commission scientifique de l'AES
+-   2023\~ Trésorière de l’AMSEN
+-   2023\~ Présidente du Club Presse de l’ENSAE
+-   2023\~ Proposition de sujets et présentation des matchs de culture générale organisés par le Club Leadership
+-   2023\~ Membre de la commission scientifique de l'AES
+-   2023\~ Secrétaire générale du Collectif des Anciens élèves du Lycée Seydina Limamou LAYE
+:::
+
+## Informations personnelles {data-icon="suitcase"}
+
+### Langues parlées
+
+::: concise
+-   Wolof
+-   Français
+-   Anglais
+-   Arabe
+-   Espagnol
+:::
+
+### Loisirs
+
+::: concise
+-   Scrabble
+-   Lecture
+-   Documentaires sur la géopolitique
+-   Ecrire
+-   Assister à des séances de prise parole
+:::
+
+## Compétences {data-icon="file"}
+
+### Analyse descriptive des données
+
+### Quelques notions sur R, Python, SPSS, Stata, VBA, Canva, QGIS
+
+## Profil {data-icon="chalkboard-teacher"}
+
+Elève déterminée, sérieuse et passionnée par la lecture et l'écriture
