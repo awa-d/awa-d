@@ -1,0 +1,35 @@
+---
+title: "Lettre de demande de stage d'immersion"
+author: "Awa DIAW"
+output:
+  pagedown::html_letter:
+    self_contained: false
+links-to-footnotes: true
+paged-footnotes: true
+# uncomment this line to produce HTML and PDF in RStudio:
+#knit: pagedown::chrome_print
+---
+
+::: from
+M^lle^ Awa DIAW\
+Grand Dakar\
+Email: diawa3002\@gmail.com
+
+Téléphone: +221 78 570 67 46
+:::
+
+ANSD, Colobane Cerf-Volant Rocade
+
+A l’attention du Directeur général
+
+::: date
+Dakar, le 13 mars 2024
+:::
+
+   Etudiante en 2^e^ année de formation en filière ISEP, je me permets de vous transmettre cette correspondance pour solliciter de votre part l’obtention d’un stage d’immersion de 8 semaines dans la période juillet-septembre au sein les services dont vous avez la charge.
+
+   Je dois vous signaler Monsieur le Directeur général que dans le cadre de notre formation, nous devons effectuer un stage obligatoire dans une structure relevant du domaine de la Statistique. C’est cela qui motive ma demande. Ce stage me permettra aussi de produire un rapport dont la note de soutenance est prise en compte dans l’évaluation finale. Par ailleurs, il sera une occasion de mettre en pratique les connaissances théoriques acquises à l’école, de mieux comprendre la communication dans l’entreprise et de m’exercer au travail en groupe dans de vos équipes.
+
+  Tout en espérant que ma demande sera traitée avec diligence et que votre réponse sera favorable, je vous prie de bien vouloir accepter, Monsieur le Directeur général, l’expression de ma profonde gratitude.\
+Awa Diaw\
+ENSAE Pierre NDIAYE, Dakar
