@@ -1,0 +1,10 @@
+---
+title: "Curriculum Vitae"
+author: "Awa DIAW"
+date: "2024-03-12"
+output: pdf_document
+---
+install.packages("vitae")
+install.packages("pagedown")
+library("vitae")
+install.packages('tinytex')
