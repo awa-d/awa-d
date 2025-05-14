@@ -1,16 +1,14 @@
-### Hi there 👋
+# 👋 Hello there, I'm Awa Diaw
 
-<!--
-**awa-d/awa-d** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🎓 I’m currently a student in the **ISE (Ingénieur Statisticien Économiste)** program at **ENSAE**, Senegal.  
+📊 Passionate about **data science**, **statistics**, and the power of numbers to shape policies and drive impact.  
+🌍 Interested in **economics**, **machine learning**, "calculating indicators" and **public policy evaluation**.
 
-Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 📫 Let’s Connect
+- 📧 Email: diawa3002@gmail.com
+> 
+
+---
+
+![Github Stats](https://github-readme-stats.vercel.app/api?username=awa-d&show_icons=true&theme=radical)
