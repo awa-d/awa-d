@@ -1,5 +1,5 @@
 # Hello there, I'm Awa Diaw
-I’m currently a student in the **ISE-CL (Ingénieur Statisticien Économiste cycle long)** program at **ENSAE**, Senegal.  
+I’m currently a 4-year-student in the **ISE (Ingénieur Statisticien Économiste cycle long)** program at **ENSAE**, Senegal.  
  Passionate about the power of numbers to shape policies and drive impact.  
 
 
